@@ -1,14 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Award, MapPin, Building2 } from "lucide-react";
+import heroImage from "@/assets/hero-control-room.jpg";
 
 const Hero = () => {
   return (
     <section className="relative pt-24 pb-16 overflow-hidden">
-      {/* Background with geometric shapes inspired by logo */}
-      <div className="absolute inset-0 bg-gradient-to-br from-accent via-background to-secondary-muted">
-        <div className="absolute top-20 left-10 w-32 h-32 gradient-primary opacity-10 transform rotate-45 rounded-lg animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-24 h-24 gradient-secondary opacity-20 transform -rotate-12 rounded-lg animate-float" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 gradient-primary opacity-15 transform rotate-12 rounded-lg animate-float" style={{animationDelay: '2s'}}></div>
+      {/* Hero background with technology image */}
+      <div className="absolute inset-0">
+        <img 
+          src={heroImage} 
+          alt="Modern technology control room for attractions management" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-background/60"></div>
+      </div>
+
+      {/* Floating geometric elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 right-10 w-32 h-32 gradient-primary opacity-20 transform rotate-45 rounded-lg animate-float"></div>
+        <div className="absolute bottom-32 left-10 w-24 h-24 gradient-secondary opacity-30 transform -rotate-12 rounded-lg animate-float" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/3 right-1/4 w-16 h-16 gradient-primary opacity-25 transform rotate-12 rounded-lg animate-float" style={{animationDelay: '2s'}}></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
