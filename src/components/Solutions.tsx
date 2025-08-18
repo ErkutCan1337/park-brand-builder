@@ -10,9 +10,6 @@ import {
   Users,
   ArrowRight
 } from "lucide-react";
-import fecImage from "@/assets/fec-experience.jpg";
-import outdoorImage from "@/assets/outdoor-park.jpg";
-import foodImage from "@/assets/food-beverage.jpg";
 
 const Solutions = () => {
   const solutions = [
@@ -28,9 +25,7 @@ const Solutions = () => {
         "Real-time game analytics",
         "Food & beverage integration"
       ],
-      stats: "1,200+ FEC locations",
-      image: fecImage,
-      alt: "Family enjoying modern indoor entertainment center with advanced technology systems"
+      stats: "1,200+ FEC locations"
     },
     {
       id: "parks",
@@ -44,9 +39,7 @@ const Solutions = () => {
         "Group sales & corporate events",
         "Dynamic pricing optimization"
       ],
-      stats: "800+ parks worldwide",
-      image: outdoorImage,
-      alt: "Large outdoor amusement park with roller coasters and modern digital systems"
+      stats: "800+ parks worldwide"
     },
     {
       id: "retail",
@@ -60,9 +53,7 @@ const Solutions = () => {
         "Gift shop & merchandise",
         "Loyalty program integration"
       ],
-      stats: "800+ retail locations",
-      image: foodImage,
-      alt: "Modern restaurant with digital menu boards and contactless payment systems"
+      stats: "800+ retail locations"
     }
   ];
 
@@ -107,41 +98,26 @@ const Solutions = () => {
             const Icon = solution.icon;
             return (
               <Card key={solution.id} className="relative overflow-hidden group hover:shadow-elevated transition-smooth animate-slide-up" style={{animationDelay: `${index * 0.1}s`}}>
-                {/* Solution Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={solution.image} 
-                    alt={solution.alt}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-3">
-                        <div className="p-3 rounded-lg gradient-primary shadow-lg">
-                          <Icon className="w-6 h-6 text-white" />
-                        </div>
-                        <div>
-                          <h3 className="text-lg font-bold text-white drop-shadow-lg">
-                            {solution.title}
-                          </h3>
-                        </div>
-                      </div>
-                      <span className="text-xs font-medium text-primary-light bg-white/90 backdrop-blur px-2 py-1 rounded-full">
-                        {solution.stats}
-                      </span>
+                <div className="absolute top-0 right-0 w-32 h-32 gradient-primary opacity-5 transform rotate-45 translate-x-16 -translate-y-16"></div>
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="p-3 rounded-lg gradient-primary/10 border border-primary/20">
+                      <Icon className="w-6 h-6 text-primary" />
                     </div>
+                    <span className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
+                      {solution.stats}
+                    </span>
                   </div>
-                </div>
-                
-                <CardContent className="p-6">
-                  <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
+                  <CardTitle className="text-xl font-display">{solution.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-6">
                     {solution.description}
                   </p>
                   <ul className="space-y-2 mb-6">
                     {solution.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center text-sm">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary mr-3 flex-shrink-0"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary mr-3"></div>
                         {feature}
                       </li>
                     ))}
