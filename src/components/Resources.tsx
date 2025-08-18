@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { 
   FileText, 
   Video, 
@@ -9,7 +10,10 @@ import {
   ArrowRight,
   Calendar,
   Download,
-  Star
+  Star,
+  TrendingUp,
+  Target,
+  Award
 } from "lucide-react";
 
 const Resources = () => {
@@ -20,21 +24,57 @@ const Resources = () => {
       description: "How a leading theme park implemented our integrated platform to streamline operations and boost guest satisfaction.",
       readTime: "5 min read",
       category: "Theme Parks",
-      featured: true
+      featured: true,
+      fullContent: {
+        overview: "A major theme park with 2.5 million annual visitors faced challenges with fragmented systems, long wait times, and limited guest insights. After implementing QRIO's integrated platform, they achieved remarkable results.",
+        challenge: "The park operated with 12 different software systems, causing data silos, inefficient operations, and poor guest experience. Staff spent hours manually reconciling data instead of focusing on guest service.",
+        solution: "QRIO's unified platform integrated ticketing, F&B, retail, and analytics into one seamless system with real-time reporting and mobile-first guest experience.",
+        results: [
+          "23% increase in total revenue within 12 months",
+          "45% reduction in guest wait times",
+          "35% improvement in guest satisfaction scores",
+          "60% decrease in operational costs",
+          "Real-time insights across all revenue streams"
+        ]
+      }
     },
     {
       type: "White Paper",
       title: "The Future of Cashless Payments in Entertainment",
       description: "Industry insights on RFID technology adoption and its impact on guest experience and operational efficiency.",
       readTime: "8 min read",
-      category: "Technology"
+      category: "Technology",
+      fullContent: {
+        overview: "Explore how RFID cashless payment systems are revolutionizing the entertainment industry, driving both guest satisfaction and operational efficiency.",
+        challenge: "Traditional cash and card transactions create friction in the guest experience while limiting valuable data collection opportunities for operators.",
+        solution: "RFID wearables and cards enable seamless, contactless payments while providing rich guest behavior analytics and reducing transaction times by up to 70%.",
+        results: [
+          "Increase average spend per guest by 15-25%", 
+          "Reduce transaction time from 45 seconds to 3 seconds",
+          "Eliminate cash handling costs and security risks",
+          "Gain detailed guest behavior insights",
+          "Improve operational efficiency across all revenue centers"
+        ]
+      }
     },
     {
       type: "Video",
       title: "QRIO Platform Demo: FEC Management Made Simple",
       description: "Complete walkthrough of our FEC solution featuring game management, party booking, and analytics.",
       readTime: "12 min watch",
-      category: "Product Demo"
+      category: "Product Demo",
+      fullContent: {
+        overview: "Join our product expert for a comprehensive demonstration of QRIO's FEC management platform, designed specifically for family entertainment centers.",
+        challenge: "FEC operators juggle multiple systems for games, parties, food service, and reporting, leading to operational complexity and missed revenue opportunities.",
+        solution: "QRIO's all-in-one FEC platform streamlines operations with integrated game management, party booking, POS, and real-time analytics dashboard.",
+        results: [
+          "Streamline operations with single-system management",
+          "Increase party bookings by 40% with online scheduling",
+          "Improve game utilization and maintenance tracking",
+          "Access real-time performance analytics",
+          "Enhance guest experience with mobile app integration"
+        ]
+      }
     }
   ];
 
@@ -123,10 +163,89 @@ const Resources = () => {
                 </p>
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-primary font-medium">{resource.category}</span>
-                  <Button variant="ghost" size="sm" className="group/btn">
-                    Read More
-                    <ArrowRight className="ml-1 h-3 w-3 group-hover/btn:translate-x-1 transition-smooth" />
-                  </Button>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button variant="ghost" size="sm" className="group/btn">
+                        Read More
+                        <ArrowRight className="ml-1 h-3 w-3 group-hover/btn:translate-x-1 transition-smooth" />
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+                      <DialogHeader>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-3">
+                            <Badge variant="outline">{resource.type}</Badge>
+                            <span className="text-sm text-muted-foreground">{resource.readTime}</span>
+                          </div>
+                          <Badge className="gradient-primary text-white">{resource.category}</Badge>
+                        </div>
+                        <DialogTitle className="text-2xl leading-tight mt-4">
+                          {resource.title}
+                        </DialogTitle>
+                      </DialogHeader>
+                      
+                      <div className="space-y-6">
+                        <div className="bg-muted/50 p-6 rounded-lg">
+                          <h3 className="font-semibold mb-3 flex items-center">
+                            <BookOpen className="w-5 h-5 text-primary mr-2" />
+                            Overview
+                          </h3>
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            {resource.fullContent.overview}
+                          </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div>
+                            <h3 className="font-semibold mb-3 flex items-center">
+                              <Target className="w-5 h-5 text-red-500 mr-2" />
+                              Challenge
+                            </h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              {resource.fullContent.challenge}
+                            </p>
+                          </div>
+
+                          <div>
+                            <h3 className="font-semibold mb-3 flex items-center">
+                              <Award className="w-5 h-5 text-blue-500 mr-2" />
+                              Solution
+                            </h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              {resource.fullContent.solution}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div>
+                          <h3 className="font-semibold mb-4 flex items-center">
+                            <TrendingUp className="w-5 h-5 text-green-500 mr-2" />
+                            Key Results & Benefits
+                          </h3>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            {resource.fullContent.results.map((result, idx) => (
+                              <div key={idx} className="flex items-start bg-green-50 p-3 rounded-lg">
+                                <div className="w-2 h-2 rounded-full bg-green-500 mt-2 mr-3 flex-shrink-0"></div>
+                                <span className="text-sm font-medium text-green-800">{result}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="bg-gradient-to-r from-primary/10 to-primary/5 p-6 rounded-lg">
+                          <h4 className="font-semibold mb-3">Ready to achieve similar results?</h4>
+                          <div className="flex gap-3">
+                            <Button className="gradient-primary text-white">
+                              Request Demo
+                            </Button>
+                            <Button variant="outline">
+                              Download Full {resource.type}
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
                 </div>
               </CardContent>
             </Card>

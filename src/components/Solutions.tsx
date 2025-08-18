@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { 
   Gamepad2, 
   TreePalm, 
@@ -8,7 +9,10 @@ import {
   CreditCard, 
   Monitor,
   Users,
-  ArrowRight
+  ArrowRight,
+  CheckCircle,
+  TrendingUp,
+  Shield
 } from "lucide-react";
 import fecImage from "@/assets/fec-experience.jpg";
 import outdoorImage from "@/assets/outdoor-park.jpg";
@@ -146,10 +150,77 @@ const Solutions = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button variant="outline" className="w-full group border-primary text-primary hover:bg-primary hover:text-white">
-                    Learn More
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-smooth" />
-                  </Button>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button variant="outline" className="w-full group border-primary text-primary hover:bg-primary hover:text-white">
+                        Learn More
+                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-smooth" />
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-2xl">
+                      <DialogHeader>
+                        <DialogTitle className="flex items-center text-2xl">
+                          <Icon className="w-6 h-6 text-primary mr-3" />
+                          {solution.title}
+                        </DialogTitle>
+                      </DialogHeader>
+                      <div className="space-y-6">
+                        <img 
+                          src={solution.image} 
+                          alt={solution.alt}
+                          className="w-full h-48 object-cover rounded-lg"
+                        />
+                        
+                        <div>
+                          <h3 className="text-lg font-semibold mb-3 flex items-center">
+                            <CheckCircle className="w-5 h-5 text-green-500 mr-2" />
+                            Key Features & Benefits
+                          </h3>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {solution.features.map((feature, idx) => (
+                              <div key={idx} className="flex items-start">
+                                <div className="w-2 h-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></div>
+                                <span className="text-sm">{feature}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="bg-muted/50 p-4 rounded-lg">
+                          <h4 className="font-semibold mb-2 flex items-center">
+                            <TrendingUp className="w-4 h-4 text-primary mr-2" />
+                            Success Metrics
+                          </h4>
+                          <p className="text-sm text-muted-foreground mb-2">
+                            <strong>{solution.stats}</strong> trust QRIO for their operations
+                          </p>
+                          <div className="grid grid-cols-3 gap-4 text-center mt-4">
+                            <div>
+                              <div className="text-lg font-bold text-primary">35%</div>
+                              <div className="text-xs text-muted-foreground">Revenue Increase</div>
+                            </div>
+                            <div>
+                              <div className="text-lg font-bold text-primary">50%</div>
+                              <div className="text-xs text-muted-foreground">Time Savings</div>
+                            </div>
+                            <div>
+                              <div className="text-lg font-bold text-primary">99.9%</div>
+                              <div className="text-xs text-muted-foreground">Uptime</div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="flex gap-3">
+                          <Button className="gradient-primary text-white flex-1">
+                            Request Demo
+                          </Button>
+                          <Button variant="outline" className="flex-1">
+                            Download Brochure
+                          </Button>
+                        </div>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
                 </CardContent>
               </Card>
             );
