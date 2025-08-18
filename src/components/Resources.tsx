@@ -170,75 +170,160 @@ const Resources = () => {
                         <ArrowRight className="ml-1 h-3 w-3 group-hover/btn:translate-x-1 transition-smooth" />
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
-                      <DialogHeader>
+                    <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                      <DialogHeader className="border-b pb-6">
                         <div className="flex items-center justify-between">
-                          <div className="flex items-center space-x-3">
+                          <DialogTitle className="text-3xl font-display font-bold">
+                            {resource.title}
+                          </DialogTitle>
+                          <div className="flex items-center space-x-2">
                             <Badge variant="outline">{resource.type}</Badge>
+                            <Badge className="gradient-primary text-white">{resource.category}</Badge>
                             <span className="text-sm text-muted-foreground">{resource.readTime}</span>
                           </div>
-                          <Badge className="gradient-primary text-white">{resource.category}</Badge>
                         </div>
-                        <DialogTitle className="text-2xl leading-tight mt-4">
-                          {resource.title}
-                        </DialogTitle>
                       </DialogHeader>
                       
-                      <div className="space-y-6">
-                        <div className="bg-muted/50 p-6 rounded-lg">
-                          <h3 className="font-semibold mb-3 flex items-center">
-                            <BookOpen className="w-5 h-5 text-primary mr-2" />
-                            Overview
-                          </h3>
-                          <p className="text-sm text-muted-foreground leading-relaxed">
-                            {resource.fullContent.overview}
-                          </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          <div>
-                            <h3 className="font-semibold mb-3 flex items-center">
-                              <Target className="w-5 h-5 text-red-500 mr-2" />
-                              Challenge
-                            </h3>
-                            <p className="text-sm text-muted-foreground leading-relaxed">
-                              {resource.fullContent.challenge}
-                            </p>
-                          </div>
-
-                          <div>
-                            <h3 className="font-semibold mb-3 flex items-center">
-                              <Award className="w-5 h-5 text-blue-500 mr-2" />
-                              Solution
-                            </h3>
-                            <p className="text-sm text-muted-foreground leading-relaxed">
-                              {resource.fullContent.solution}
-                            </p>
-                          </div>
-                        </div>
-
-                        <div>
-                          <h3 className="font-semibold mb-4 flex items-center">
-                            <TrendingUp className="w-5 h-5 text-green-500 mr-2" />
-                            Key Results & Benefits
-                          </h3>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            {resource.fullContent.results.map((result, idx) => (
-                              <div key={idx} className="flex items-start bg-green-50 p-3 rounded-lg">
-                                <div className="w-2 h-2 rounded-full bg-green-500 mt-2 mr-3 flex-shrink-0"></div>
-                                <span className="text-sm font-medium text-green-800">{result}</span>
+                      <div className="space-y-8 py-6">
+                        {/* Hero Section with Visual */}
+                        <div className="relative h-80 rounded-2xl overflow-hidden shadow-elevated bg-gradient-to-br from-primary/20 via-primary-glow/10 to-secondary/20">
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                          <div className="absolute bottom-6 left-6 right-6">
+                            <div className="flex items-center space-x-4 mb-4">
+                              <div className="p-3 rounded-xl bg-white/20 backdrop-blur border border-white/30">
+                                {resource.type === 'Case Study' && <TrendingUp className="w-7 h-7 text-white" />}
+                                {resource.type === 'White Paper' && <FileText className="w-7 h-7 text-white" />}
+                                {resource.type === 'Video' && <Video className="w-7 h-7 text-white" />}
                               </div>
-                            ))}
+                              <div className="text-white/90 text-sm">
+                                {resource.category} • {resource.readTime}
+                              </div>
+                            </div>
+                            <h3 className="text-2xl font-bold text-white mb-3">
+                              {resource.description}
+                            </h3>
                           </div>
                         </div>
 
-                        <div className="bg-gradient-to-r from-primary/10 to-primary/5 p-6 rounded-lg">
-                          <h4 className="font-semibold mb-3">Ready to achieve similar results?</h4>
-                          <div className="flex gap-3">
-                            <Button className="gradient-primary text-white">
-                              Request Demo
+                        {/* Content Grid */}
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                          <div className="lg:col-span-2 space-y-8">
+                            {/* Overview */}
+                            <div className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-2xl border">
+                              <h3 className="text-xl font-bold mb-4 flex items-center">
+                                <BookOpen className="w-6 h-6 text-primary mr-3" />
+                                Overview
+                              </h3>
+                              <p className="text-base leading-relaxed text-muted-foreground">
+                                {resource.fullContent.overview}
+                              </p>
+                            </div>
+
+                            {/* Challenge & Solution */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                              <div className="bg-card p-6 rounded-2xl shadow-sm border">
+                                <h3 className="text-lg font-bold mb-4 flex items-center">
+                                  <Target className="w-5 h-5 text-destructive mr-3" />
+                                  Challenge
+                                </h3>
+                                <p className="text-sm leading-relaxed text-muted-foreground">
+                                  {resource.fullContent.challenge}
+                                </p>
+                              </div>
+
+                              <div className="bg-card p-6 rounded-2xl shadow-sm border">
+                                <h3 className="text-lg font-bold mb-4 flex items-center">
+                                  <Award className="w-5 h-5 text-primary mr-3" />
+                                  Solution
+                                </h3>
+                                <p className="text-sm leading-relaxed text-muted-foreground">
+                                  {resource.fullContent.solution}
+                                </p>
+                              </div>
+                            </div>
+
+                            {/* Results */}
+                            <div>
+                              <h3 className="text-xl font-bold mb-6 flex items-center">
+                                <TrendingUp className="w-6 h-6 text-success mr-3" />
+                                Key Results & Benefits
+                              </h3>
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {resource.fullContent.results.map((result, idx) => (
+                                  <div key={idx} className="flex items-start p-4 bg-success/5 border border-success/20 rounded-xl">
+                                    <div className="w-3 h-3 rounded-full bg-success mt-2 mr-4 flex-shrink-0"></div>
+                                    <span className="text-sm font-medium text-success-foreground">{result}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                          
+                          {/* Sidebar */}
+                          <div className="space-y-6">
+                            <div className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-2xl border">
+                              <h4 className="font-bold mb-4">Quick Stats</h4>
+                              <div className="space-y-4">
+                                <div className="flex justify-between items-center">
+                                  <span className="text-sm text-muted-foreground">Venues Studied</span>
+                                  <span className="font-bold text-primary">2,800+</span>
+                                </div>
+                                <div className="flex justify-between items-center">
+                                  <span className="text-sm text-muted-foreground">Countries</span>
+                                  <span className="font-bold text-primary">60+</span>
+                                </div>
+                                <div className="flex justify-between items-center">
+                                  <span className="text-sm text-muted-foreground">Avg. ROI Increase</span>
+                                  <span className="font-bold text-success">35%</span>
+                                </div>
+                                <div className="flex justify-between items-center">
+                                  <span className="text-sm text-muted-foreground">Implementation Time</span>
+                                  <span className="font-bold text-primary">30 days</span>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div className="bg-card p-6 rounded-2xl shadow-sm border">
+                              <h4 className="font-bold mb-4">Related Resources</h4>
+                              <div className="space-y-4">
+                                <div className="flex items-start space-x-3">
+                                  <FileText className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                                  <div className="text-sm">
+                                    <div className="font-medium">Digital Transformation Guide</div>
+                                    <div className="text-muted-foreground">Complete implementation roadmap</div>
+                                  </div>
+                                </div>
+                                <div className="flex items-start space-x-3">
+                                  <TrendingUp className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                                  <div className="text-sm">
+                                    <div className="font-medium">ROI Calculator</div>
+                                    <div className="text-muted-foreground">Estimate your potential savings</div>
+                                  </div>
+                                </div>
+                                <div className="flex items-start space-x-3">
+                                  <Video className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                                  <div className="text-sm">
+                                    <div className="font-medium">Platform Walkthrough</div>
+                                    <div className="text-muted-foreground">15-minute product demo</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* CTA Section */}
+                        <div className="bg-gradient-to-r from-primary/10 via-primary-glow/10 to-secondary/10 rounded-2xl p-8 text-center">
+                          <h4 className="text-2xl font-bold mb-4">Ready to Achieve Similar Results?</h4>
+                          <p className="text-muted-foreground mb-6 text-lg">
+                            Get personalized insights for your venue with a free consultation from our experts.
+                          </p>
+                          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Button size="lg" className="gradient-primary text-white px-8 py-4 text-lg shadow-brand">
+                              Schedule Consultation
+                              <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>
-                            <Button variant="outline">
+                            <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-2">
                               Download Full {resource.type}
                             </Button>
                           </div>

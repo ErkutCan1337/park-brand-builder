@@ -157,66 +157,99 @@ const Solutions = () => {
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-smooth" />
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className="max-w-2xl">
-                      <DialogHeader>
-                        <DialogTitle className="flex items-center text-2xl">
-                          <Icon className="w-6 h-6 text-primary mr-3" />
-                          {solution.title}
-                        </DialogTitle>
+                    <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                      <DialogHeader className="border-b pb-6">
+                        <div className="flex items-center justify-between">
+                          <DialogTitle className="flex items-center text-3xl font-display">
+                            <div className="p-3 rounded-2xl gradient-primary mr-4 shadow-glow">
+                              <Icon className="w-8 h-8 text-white" />
+                            </div>
+                            <div>
+                              <div className="text-2xl font-bold">{solution.title}</div>
+                              <div className="text-lg text-muted-foreground font-normal">{solution.stats}</div>
+                            </div>
+                          </DialogTitle>
+                        </div>
                       </DialogHeader>
-                      <div className="space-y-6">
-                        <img 
-                          src={solution.image} 
-                          alt={solution.alt}
-                          className="w-full h-48 object-cover rounded-lg"
-                        />
-                        
-                        <div>
-                          <h3 className="text-lg font-semibold mb-3 flex items-center">
-                            <CheckCircle className="w-5 h-5 text-green-500 mr-2" />
-                            Key Features & Benefits
-                          </h3>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {solution.features.map((feature, idx) => (
-                              <div key={idx} className="flex items-start">
-                                <div className="w-2 h-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></div>
-                                <span className="text-sm">{feature}</span>
+                      
+                      <div className="space-y-8 py-6">
+                        {/* Hero Image */}
+                        <div className="relative h-80 rounded-2xl overflow-hidden shadow-elevated">
+                          <img 
+                            src={solution.image} 
+                            alt={solution.alt}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                          <div className="absolute bottom-6 left-6 right-6">
+                            <h3 className="text-2xl font-bold text-white mb-2">
+                              Transform Your Operations
+                            </h3>
+                            <p className="text-white/90 text-lg">
+                              {solution.description}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Features Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                          <div>
+                            <h3 className="text-2xl font-bold mb-6 flex items-center">
+                              <CheckCircle className="w-6 h-6 text-success mr-3" />
+                              Key Features
+                            </h3>
+                            <div className="space-y-4">
+                              {solution.features.map((feature, idx) => (
+                                <div key={idx} className="flex items-start p-4 bg-muted/30 rounded-xl">
+                                  <div className="w-3 h-3 rounded-full gradient-primary mt-2 mr-4 flex-shrink-0 shadow-brand"></div>
+                                  <span className="font-medium">{feature}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div>
+                            <h4 className="text-2xl font-bold mb-6 flex items-center">
+                              <TrendingUp className="w-6 h-6 text-primary mr-3" />
+                              Success Metrics
+                            </h4>
+                            <div className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-2xl border">
+                              <p className="text-lg mb-6">
+                                <strong className="text-primary">{solution.stats}</strong> trust QRIO for their operations
+                              </p>
+                              <div className="grid grid-cols-1 gap-6">
+                                <div className="text-center p-4 bg-card rounded-xl shadow-sm">
+                                  <div className="text-3xl font-bold text-primary mb-2">35%</div>
+                                  <div className="text-sm text-muted-foreground">Average Revenue Increase</div>
+                                </div>
+                                <div className="text-center p-4 bg-card rounded-xl shadow-sm">
+                                  <div className="text-3xl font-bold text-primary mb-2">50%</div>
+                                  <div className="text-sm text-muted-foreground">Operational Time Savings</div>
+                                </div>
+                                <div className="text-center p-4 bg-card rounded-xl shadow-sm">
+                                  <div className="text-3xl font-bold text-primary mb-2">99.9%</div>
+                                  <div className="text-sm text-muted-foreground">System Uptime</div>
+                                </div>
                               </div>
-                            ))}
+                            </div>
                           </div>
                         </div>
 
-                        <div className="bg-muted/50 p-4 rounded-lg">
-                          <h4 className="font-semibold mb-2 flex items-center">
-                            <TrendingUp className="w-4 h-4 text-primary mr-2" />
-                            Success Metrics
-                          </h4>
-                          <p className="text-sm text-muted-foreground mb-2">
-                            <strong>{solution.stats}</strong> trust QRIO for their operations
+                        {/* CTA Section */}
+                        <div className="bg-gradient-to-r from-primary/10 via-primary-glow/10 to-secondary/10 rounded-2xl p-8 text-center">
+                          <h4 className="text-2xl font-bold mb-4">Ready to Transform Your Operations?</h4>
+                          <p className="text-muted-foreground mb-6 text-lg">
+                            Join thousands of venues worldwide who trust QRIO for their technology needs.
                           </p>
-                          <div className="grid grid-cols-3 gap-4 text-center mt-4">
-                            <div>
-                              <div className="text-lg font-bold text-primary">35%</div>
-                              <div className="text-xs text-muted-foreground">Revenue Increase</div>
-                            </div>
-                            <div>
-                              <div className="text-lg font-bold text-primary">50%</div>
-                              <div className="text-xs text-muted-foreground">Time Savings</div>
-                            </div>
-                            <div>
-                              <div className="text-lg font-bold text-primary">99.9%</div>
-                              <div className="text-xs text-muted-foreground">Uptime</div>
-                            </div>
+                          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Button size="lg" className="gradient-primary text-white px-8 py-4 text-lg shadow-brand">
+                              Schedule Demo
+                              <ArrowRight className="ml-2 h-5 w-5" />
+                            </Button>
+                            <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-2">
+                              Download Case Study
+                            </Button>
                           </div>
-                        </div>
-
-                        <div className="flex gap-3">
-                          <Button className="gradient-primary text-white flex-1">
-                            Request Demo
-                          </Button>
-                          <Button variant="outline" className="flex-1">
-                            Download Brochure
-                          </Button>
                         </div>
                       </div>
                     </DialogContent>

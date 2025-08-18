@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight, Play } from "lucide-react";
 import heroImage from "@/assets/hero-control-room.jpg";
 import fecImage from "@/assets/fec-experience.jpg";
 import outdoorImage from "@/assets/outdoor-park.jpg";
@@ -15,27 +14,30 @@ const Slider = () => {
       title: "Award-Winning Technology Solutions",
       subtitle: "IAAPA Brass Ring Award Winner 2024",
       description: "Powering exceptional guest experiences at 2,800+ locations worldwide with integrated technology that drives revenue and operational excellence.",
-      cta: "Request Demo",
+      cta: "Watch Demo",
+      ctaSecondary: "Learn More",
       image: heroImage,
-      gradient: "from-blue-900/90 via-blue-800/85 to-blue-700/80"
+      overlay: "from-black/70 via-black/50 to-transparent"
     },
     {
       id: 2,
       title: "Transform Your FEC Operations",
       subtitle: "Complete Management Platform",
       description: "From game card management to party bookings, streamline every aspect of your family entertainment center with our comprehensive solution.",
-      cta: "View FEC Solutions",
+      cta: "Explore Solutions",
+      ctaSecondary: "View Case Study",
       image: fecImage,
-      gradient: "from-purple-900/90 via-purple-800/85 to-purple-700/80"
+      overlay: "from-primary-deep/80 via-primary/60 to-transparent"
     },
     {
       id: 3,
       title: "Scale with Confidence",
       subtitle: "Modular Platform Design",
       description: "Deploy solutions independently or as an integrated platform. Start small and grow with modules that adapt to your unique business needs.",
-      cta: "Explore Modules",
+      cta: "Get Started",
+      ctaSecondary: "Book Consultation",
       image: outdoorImage,
-      gradient: "from-green-900/90 via-green-800/85 to-green-700/80"
+      overlay: "from-secondary/80 via-primary-glow/60 to-transparent"
     }
   ];
 
@@ -49,65 +51,77 @@ const Slider = () => {
 
   // Auto-advance slides
   useEffect(() => {
-    const timer = setInterval(nextSlide, 5000);
+    const timer = setInterval(nextSlide, 7000);
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <section className="relative h-[600px] overflow-hidden">
+    <section className="relative h-screen overflow-hidden">
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
           key={slide.id}
-          className={`absolute inset-0 transition-transform duration-700 ease-in-out ${
-            index === currentSlide ? 'translate-x-0' : 
-            index < currentSlide ? '-translate-x-full' : 'translate-x-full'
+          className={`absolute inset-0 transition-all duration-1000 ease-out ${
+            index === currentSlide ? 'opacity-100 scale-100' : 
+            'opacity-0 scale-105'
           }`}
         >
-          {/* Background Image */}
+          {/* Background Image with Parallax Effect */}
           <div className="absolute inset-0">
             <img 
               src={slide.image} 
               alt={slide.title}
-              className="w-full h-full object-cover"
+              className={`w-full h-full object-cover transition-transform duration-1000 ${
+                index === currentSlide ? 'scale-100' : 'scale-110'
+              }`}
             />
-            <div className={`absolute inset-0 bg-gradient-to-r ${slide.gradient}`}></div>
+            <div className={`absolute inset-0 bg-gradient-to-r ${slide.overlay}`}></div>
           </div>
 
-          {/* Content */}
+          {/* Content - Squarespace Style */}
           <div className="relative h-full flex items-center">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-              <div className="max-w-3xl">
-                <div className="mb-4">
-                  <span className="inline-block px-4 py-2 rounded-full bg-white/10 text-white text-sm font-medium border border-white/20">
+              <div className="max-w-2xl">
+                {/* Animated Badge */}
+                <div className="mb-6 transform transition-all duration-700 delay-300">
+                  <span className="inline-block px-4 py-2 rounded-full bg-white/20 backdrop-blur text-white text-sm font-medium border border-white/30 shadow-lg">
                     {slide.subtitle}
                   </span>
                 </div>
                 
-                <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
+                {/* Main Title - Squarespace Typography */}
+                <h1 className="text-5xl md:text-7xl font-display font-light text-white mb-6 leading-tight tracking-tight transform transition-all duration-700 delay-500">
                   {slide.title}
                 </h1>
                 
-                <p className="text-xl text-white/90 mb-8 leading-relaxed">
+                {/* Description */}
+                <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed font-light max-w-xl transform transition-all duration-700 delay-700">
                   {slide.description}
                 </p>
                 
-                <Button size="lg" className="gradient-primary text-white border-0 shadow-brand group">
-                  {slide.cta}
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-smooth" />
-                </Button>
+                {/* CTA Buttons - Squarespace Style */}
+                <div className="flex flex-col sm:flex-row gap-4 transform transition-all duration-700 delay-900">
+                  <Button size="lg" className="bg-white text-foreground hover:bg-white/90 shadow-xl border-0 px-8 py-4 text-lg font-medium">
+                    <Play className="mr-2 h-5 w-5" />
+                    {slide.cta}
+                  </Button>
+                  <Button size="lg" variant="ghost" className="text-white border-2 border-white/50 hover:bg-white/10 hover:border-white px-8 py-4 text-lg font-medium">
+                    {slide.ctaSecondary}
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       ))}
 
-      {/* Navigation Arrows */}
+      {/* Minimal Navigation - Squarespace Style */}
       <Button
         variant="ghost"
         size="icon"
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/10 h-12 w-12"
+        className="absolute left-6 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12 backdrop-blur border border-white/20"
       >
         <ChevronLeft className="h-6 w-6" />
       </Button>
@@ -116,24 +130,29 @@ const Slider = () => {
         variant="ghost"
         size="icon"
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/10 h-12 w-12"
+        className="absolute right-6 top-1/2 -translate-y-1/2 text-white hover:bg-white/20 h-12 w-12 backdrop-blur border border-white/20"
       >
         <ChevronRight className="h-6 w-6" />
       </Button>
 
-      {/* Slide Indicators */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2">
+      {/* Slide Indicators - Modern Dots */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-12 h-1 rounded-full transition-all duration-500 ${
               index === currentSlide 
-                ? 'bg-white scale-110' 
-                : 'bg-white/50 hover:bg-white/75'
+                ? 'bg-white shadow-lg' 
+                : 'bg-white/40 hover:bg-white/70'
             }`}
           />
         ))}
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 right-8 text-white/60 text-sm font-light tracking-wide">
+        SCROLL TO EXPLORE
       </div>
     </section>
   );
