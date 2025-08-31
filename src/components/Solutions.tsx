@@ -51,8 +51,7 @@ const Solutions = () => {
     title: "CRM & Analytics",
     description: "Deep insights into guest behavior and preferences"
   }];
-  return (
-    <>
+  return <>
       {/* Crio Games Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-primary/5 via-secondary/5 to-primary-glow/5 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent"></div>
@@ -88,24 +87,13 @@ const Solutions = () => {
                 </Button>
               </div>
               
-              <div className="mt-8 grid grid-cols-3 gap-6">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">500+</div>
-                  <div className="text-sm text-muted-foreground">Gaming Centers</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">2M+</div>
-                  <div className="text-sm text-muted-foreground">Players Served</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">98%</div>
-                  <div className="text-sm text-muted-foreground">Satisfaction Rate</div>
-                </div>
-              </div>
+              
             </div>
             
             {/* Video Placeholder */}
-            <div className="relative animate-slide-up" style={{ animationDelay: '0.2s' }}>
+            <div className="relative animate-slide-up" style={{
+            animationDelay: '0.2s'
+          }}>
               <div className="relative rounded-2xl overflow-hidden shadow-elevated bg-card border border-border">
                 <div className="aspect-video bg-gradient-to-br from-muted/50 to-muted relative group">
                   {/* Video placeholder - Replace this div with your video element */}
@@ -128,9 +116,9 @@ const Solutions = () => {
                     loop 
                     muted 
                     playsInline
-                  >
+                   >
                     <source src="/path-to-your-video.mp4" type="video/mp4" />
-                  </video> */}
+                   </video> */}
                 </div>
                 
                 {/* Optional play button overlay */}
@@ -159,10 +147,10 @@ const Solutions = () => {
         {/* Main Solutions */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           {solutions.map((solution, index) => {
-          const Icon = solution.icon;
-          return <Card key={solution.id} className="relative overflow-hidden group hover:shadow-elevated transition-smooth animate-slide-up" style={{
-            animationDelay: `${index * 0.1}s`
-          }}>
+            const Icon = solution.icon;
+            return <Card key={solution.id} className="relative overflow-hidden group hover:shadow-elevated transition-smooth animate-slide-up" style={{
+              animationDelay: `${index * 0.1}s`
+            }}>
                 {/* Solution Image */}
                 <div className="relative h-48 overflow-hidden">
                   <img src={solution.image} alt={solution.alt} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
@@ -292,7 +280,7 @@ const Solutions = () => {
                   </Dialog>
                 </CardContent>
               </Card>;
-        })}
+          })}
         </div>
 
         {/* Key Features */}
@@ -302,22 +290,21 @@ const Solutions = () => {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {keyFeatures.map((feature, index) => {
-            const Icon = feature.icon;
-            return <div key={index} className="text-center group animate-slide-up" style={{
-              animationDelay: `${index * 0.1}s`
-            }}>
+              const Icon = feature.icon;
+              return <div key={index} className="text-center group animate-slide-up" style={{
+                animationDelay: `${index * 0.1}s`
+              }}>
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-full gradient-primary mb-4 group-hover:shadow-glow transition-smooth">
                     <Icon className="w-6 h-6 text-white" />
                   </div>
                   <h4 className="font-semibold mb-2">{feature.title}</h4>
                   <p className="text-sm text-muted-foreground">{feature.description}</p>
                 </div>;
-          })}
+            })}
           </div>
         </div>
       </div>
     </section>
-    </>
-  );
+    </>;
 };
 export default Solutions;
