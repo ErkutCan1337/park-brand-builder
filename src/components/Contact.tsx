@@ -3,69 +3,47 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Clock, 
-  Users, 
-  Briefcase,
-  Globe,
-  ArrowRight,
-  Send
-} from "lucide-react";
-
+import { Mail, Phone, MapPin, Clock, Users, Briefcase, Globe, ArrowRight, Send } from "lucide-react";
 const Contact = () => {
-  const offices = [
-    {
-      region: "North America",
-      city: "Chicago , U.S.A.",
-      address: "11417 IL-19, Franklin Park, IL 60131 ",
-      phone: "+1 312 625 21 17",
-      email: "info@crio.games"
-    },
-    {
-      region: "Europe",
-      city: "Oxford , UK", 
-      address: "45 Innovation Street, London EC2A 4DP",
-      phone: "+44 20 7555 0123",
-      email: "info@crio.games"
-    },
-    {
-      region: "Asia Pacific",
-      city: "Ankara , TR",
-      address: "Mutlukent Mah. 2037. Cad. No:30 Çankaya",
-      phone: "+90 (312) 440 47 47",
-      email: "info@crio.games"
-    }
-  ];
-
-  const salesContacts = [
-    {
-      role: "Sales Director - Americas",
-      name: "John Mitchell",
-      phone: "+1 (407) 555-0145",
-      email: "j.mitchell@qrio.com",
-      specialties: ["Theme Parks", "Water Parks"]
-    },
-    {
-      role: "Sales Director - EMEA",
-      name: "Emma Thompson", 
-      phone: "+44 20 7555 0167",
-      email: "e.thompson@qrio.com",
-      specialties: ["FECs", "Family Entertainment"]
-    },
-    {
-      role: "Sales Director - APAC",
-      name: "David Chen",
-      phone: "+65 6555 0189",
-      email: "d.chen@qrio.com", 
-      specialties: ["Attractions", "Mixed-Use Venues"]
-    }
-  ];
-
-  return (
-    <section id="contact" className="py-20">
+  const offices = [{
+    region: "North America",
+    city: "Chicago , U.S.A.",
+    address: "11417 IL-19, Franklin Park, IL 60131 ",
+    phone: "+1 312 625 21 17",
+    email: "info@crio.games"
+  }, {
+    region: "Europe",
+    city: "Oxford , UK",
+    address: "45 Innovation Street, London EC2A 4DP",
+    phone: "+44 20 7555 0123",
+    email: "info@crio.games"
+  }, {
+    region: "Asia Pacific",
+    city: "Ankara , TR",
+    address: "Mutlukent Mah. 2037. Cad. No:30 Çankaya",
+    phone: "+90 (312) 440 47 47",
+    email: "info@crio.games"
+  }];
+  const salesContacts = [{
+    role: "Sales Director - Americas",
+    name: "John Mitchell",
+    phone: "+1 (407) 555-0145",
+    email: "j.mitchell@qrio.com",
+    specialties: ["Theme Parks", "Water Parks"]
+  }, {
+    role: "Sales Director - EMEA",
+    name: "Emma Thompson",
+    phone: "+44 20 7555 0167",
+    email: "e.thompson@qrio.com",
+    specialties: ["FECs", "Family Entertainment"]
+  }, {
+    role: "Sales Director - APAC",
+    name: "David Chen",
+    phone: "+65 6555 0189",
+    email: "d.chen@qrio.com",
+    specialties: ["Attractions", "Mixed-Use Venues"]
+  }];
+  return <section id="contact" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
@@ -134,10 +112,7 @@ const Contact = () => {
 
                 <div>
                   <label className="block text-sm font-medium mb-2">Tell us about your needs</label>
-                  <Textarea 
-                    placeholder="What challenges are you looking to solve? What solutions interest you most?"
-                    rows={4}
-                  />
+                  <Textarea placeholder="What challenges are you looking to solve? What solutions interest you most?" rows={4} />
                 </div>
 
                 <Button className="w-full gradient-primary text-white border-0 shadow-brand">
@@ -156,7 +131,9 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             {/* Careers Section */}
-            <Card className="animate-slide-up" style={{animationDelay: '0.2s'}}>
+            <Card className="animate-slide-up" style={{
+            animationDelay: '0.2s'
+          }}>
               <CardContent className="p-6">
                 <h3 className="text-xl font-display font-bold mb-4 flex items-center">
                   <Briefcase className="w-5 h-5 text-primary mr-2" />
@@ -179,50 +156,23 @@ const Contact = () => {
             </Card>
 
             {/* Sales Team */}
-            <Card className="animate-slide-up" style={{animationDelay: '0.4s'}}>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-display font-bold mb-6 flex items-center">
-                  <Users className="w-5 h-5 text-primary mr-2" />
-                  Sales Team
-                </h3>
-                <div className="space-y-4">
-                  {salesContacts.map((contact, index) => (
-                    <div key={index} className="border-b border-border pb-4 last:border-b-0">
-                      <div className="font-semibold text-sm">{contact.name}</div>
-                      <div className="text-xs text-primary font-medium mb-2">{contact.role}</div>
-                      <div className="flex items-center space-x-4 text-xs text-muted-foreground">
-                        <span className="flex items-center">
-                          <Phone className="w-3 h-3 mr-1" />
-                          {contact.phone}
-                        </span>
-                        <span className="flex items-center">
-                          <Mail className="w-3 h-3 mr-1" />
-                          {contact.email}
-                        </span>
-                      </div>
-                      <div className="flex flex-wrap gap-1 mt-2">
-                        {contact.specialties.map((specialty, idx) => (
-                          <Badge key={idx} variant="secondary" className="text-xs">
-                            {specialty}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
+            <Card className="animate-slide-up" style={{
+            animationDelay: '0.4s'
+          }}>
+              
             </Card>
 
             {/* Global Offices */}
-            <Card className="animate-slide-up" style={{animationDelay: '0.6s'}}>
+            <Card className="animate-slide-up" style={{
+            animationDelay: '0.6s'
+          }}>
               <CardContent className="p-6">
                 <h3 className="text-xl font-display font-bold mb-6 flex items-center">
                   <Globe className="w-5 h-5 text-primary mr-2" />
                   Global Offices
                 </h3>
                 <div className="space-y-4">
-                  {offices.map((office, index) => (
-                    <div key={index} className="border-b border-border pb-4 last:border-b-0">
+                  {offices.map((office, index) => <div key={index} className="border-b border-border pb-4 last:border-b-0">
                       <div className="flex items-center justify-between mb-2">
                         <div className="font-semibold text-sm">{office.city}</div>
                         <Badge variant="outline" className="text-xs">{office.region}</Badge>
@@ -241,8 +191,7 @@ const Contact = () => {
                           {office.email}
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
                 <div className="mt-4 p-3 bg-muted rounded-lg">
                   <div className="flex items-center text-sm">
@@ -258,8 +207,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
