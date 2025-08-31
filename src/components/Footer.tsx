@@ -160,7 +160,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* Copyright */}
             <div className="text-sm text-muted-foreground">
-              © 2018 QRIO Technology Solutions. All rights reserved.
+              © 2018 CRIO Technology Solutions. All rights reserved.
             </div>
 
             {/* Legal Links */}
