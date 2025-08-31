@@ -98,17 +98,17 @@ const GuestJourney = () => {
                 return (
                   <div
                     key={step.id}
-                    className="relative"
+                    className="relative h-full"
                     onMouseEnter={() => setHoveredStep(step.id)}
                     onMouseLeave={() => setHoveredStep(null)}
                   >
                     {/* Step Indicator */}
-                    <div className="flex flex-col items-center">
+                    <div className="flex flex-col items-center h-full">
                       {/* Icon Circle */}
                       <div 
                         className={cn(
                           "w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300",
-                          "border-2 bg-background",
+                          "border-2 bg-background flex-shrink-0",
                           isActive 
                             ? "border-primary shadow-lg shadow-primary/25 scale-110" 
                             : "border-border"
@@ -122,19 +122,20 @@ const GuestJourney = () => {
                         />
                       </div>
                       
-                      {/* Content Card */}
+                      {/* Content Card - Fixed Height */}
                       <div 
                         className={cn(
                           "mt-8 p-6 rounded-xl border bg-card transition-all duration-300",
                           "hover:shadow-xl hover:border-primary/50",
+                          "w-full h-[200px] flex flex-col",
                           isActive ? "opacity-100" : "opacity-70"
                         )}
                       >
-                        <h3 className="font-semibold text-lg mb-3">
+                        <h3 className="font-semibold text-lg mb-3 text-center">
                           {step.title}
                         </h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {step.description}
+                        <p className="text-sm text-muted-foreground leading-relaxed text-center flex-1 flex items-center">
+                          <span>{step.description}</span>
                         </p>
                       </div>
                     </div>
