@@ -159,7 +159,7 @@ const Solutions = () => {
                             </h4>
                             <div className="bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-2xl border">
                               <p className="text-lg mb-6">
-                                <strong className="text-primary">{solution.stats}</strong> trust QRIO for their operations
+                                <strong className="text-primary">{solution.stats}</strong> trust crio for their operations
                               </p>
                               <div className="grid grid-cols-1 gap-6">
                                 <div className="text-center p-4 bg-card rounded-xl shadow-sm">
@@ -183,7 +183,7 @@ const Solutions = () => {
                         <div className="bg-gradient-to-r from-primary/10 via-primary-glow/10 to-secondary/10 rounded-2xl p-8 text-center">
                           <h4 className="text-2xl font-bold mb-4">Ready to Transform Your Operations?</h4>
                           <p className="text-muted-foreground mb-6 text-lg">
-                            Join thousands of venues worldwide who trust QRIO for their technology needs.
+                            Join thousands of venues worldwide who trust crio for their technology needs.
                           </p>
                           <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button size="lg" className="gradient-primary text-white px-8 py-4 text-lg shadow-brand">
