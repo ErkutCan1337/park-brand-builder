@@ -12,7 +12,7 @@ const Slider = () => {
     {
       id: 1,
       title: "Award-Winning Technology Solutions",
-      subtitle: "IAAPA Brass Ring Award Winner 2024",
+      subtitle: "Technology that delights and delivers",
       description: "Powering exceptional guest experiences with integrated technology that drives revenue and operational excellence.",
       cta: "Watch Demo",
       ctaSecondary: "Learn More",
