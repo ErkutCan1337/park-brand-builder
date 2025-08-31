@@ -2,99 +2,68 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { 
-  MapPin, 
-  Clock, 
-  DollarSign, 
-  Users, 
-  Rocket, 
-  Heart,
-  Award,
-  Globe,
-  ArrowRight,
-  Briefcase
-} from "lucide-react";
-
+import { MapPin, Clock, DollarSign, Users, Rocket, Heart, Award, Globe, ArrowRight, Briefcase } from "lucide-react";
 const Careers = () => {
-  const jobOpenings = [
-    {
-      title: "Senior Software Engineer",
-      department: "Engineering",
-      location: "Remote / San Francisco",
-      type: "Full-time",
-      salary: "$120,000 - $180,000",
-      description: "Build and scale our platform that powers entertainment venues worldwide."
-    },
-    {
-      title: "Product Manager",
-      department: "Product",
-      location: "New York / Remote",
-      type: "Full-time", 
-      salary: "$110,000 - $160,000",
-      description: "Drive product strategy for our modular entertainment technology solutions."
-    },
-    {
-      title: "Customer Success Manager",
-      department: "Customer Success",
-      location: "Chicago / Remote",
-      type: "Full-time",
-      salary: "$75,000 - $95,000",
-      description: "Help entertainment venues maximize their success with QRIO's platform."
-    },
-    {
-      title: "DevOps Engineer",
-      department: "Engineering",
-      location: "Austin / Remote",
-      type: "Full-time",
-      salary: "$100,000 - $140,000",
-      description: "Maintain and optimize infrastructure serving 2,800+ locations globally."
-    }
-  ];
-
-  const benefits = [
-    {
-      icon: Heart,
-      title: "Health & Wellness",
-      description: "Comprehensive health, dental, and vision insurance for you and your family"
-    },
-    {
-      icon: Rocket,
-      title: "Growth & Learning",
-      description: "$2,500 annual learning budget and conference attendance opportunities"
-    },
-    {
-      icon: Globe,
-      title: "Remote-First",
-      description: "Work from anywhere with flexible hours and $1,000 home office setup"
-    },
-    {
-      icon: Award,
-      title: "Equity & Bonuses",
-      description: "Competitive equity package and performance-based bonuses"
-    }
-  ];
-
-  const values = [
-    {
-      title: "Innovation First",
-      description: "We're constantly pushing the boundaries of what's possible in entertainment technology."
-    },
-    {
-      title: "Customer-Centric",
-      description: "Every decision we make puts our 2,800+ venue partners at the center."
-    },
-    {
-      title: "Global Impact",
-      description: "Our work touches millions of guests across 60+ countries every day."
-    },
-    {
-      title: "Team Excellence",
-      description: "We hire the best and support each other to do our best work."
-    }
-  ];
-
-  return (
-    <div className="min-h-screen">
+  const jobOpenings = [{
+    title: "Senior Software Engineer",
+    department: "Engineering",
+    location: "Remote / San Francisco",
+    type: "Full-time",
+    salary: "$120,000 - $180,000",
+    description: "Build and scale our platform that powers entertainment venues worldwide."
+  }, {
+    title: "Product Manager",
+    department: "Product",
+    location: "New York / Remote",
+    type: "Full-time",
+    salary: "$110,000 - $160,000",
+    description: "Drive product strategy for our modular entertainment technology solutions."
+  }, {
+    title: "Customer Success Manager",
+    department: "Customer Success",
+    location: "Chicago / Remote",
+    type: "Full-time",
+    salary: "$75,000 - $95,000",
+    description: "Help entertainment venues maximize their success with QRIO's platform."
+  }, {
+    title: "DevOps Engineer",
+    department: "Engineering",
+    location: "Austin / Remote",
+    type: "Full-time",
+    salary: "$100,000 - $140,000",
+    description: "Maintain and optimize infrastructure serving 2,800+ locations globally."
+  }];
+  const benefits = [{
+    icon: Heart,
+    title: "Health & Wellness",
+    description: "Comprehensive health, dental, and vision insurance for you and your family"
+  }, {
+    icon: Rocket,
+    title: "Growth & Learning",
+    description: "$2,500 annual learning budget and conference attendance opportunities"
+  }, {
+    icon: Globe,
+    title: "Remote-First",
+    description: "Work from anywhere with flexible hours and $1,000 home office setup"
+  }, {
+    icon: Award,
+    title: "Equity & Bonuses",
+    description: "Competitive equity package and performance-based bonuses"
+  }];
+  const values = [{
+    title: "Innovation First",
+    description: "We're constantly pushing the boundaries of what's possible in entertainment technology."
+  }, {
+    title: "Customer-Centric",
+    description: "Every decision we make puts our 2,800+ venue partners at the center."
+  }, {
+    title: "Global Impact",
+    description: "Our work touches millions of guests across 60+ countries every day."
+  }, {
+    title: "Team Excellence",
+    description: "We hire the best and support each other to do our best work."
+  }];
+  return <div className="min-h-screen">
       <Header />
       
       <main className="pt-16">
@@ -125,28 +94,7 @@ const Careers = () => {
         </section>
 
         {/* Company Stats */}
-        <section className="py-16 bg-card">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div>
-                <div className="text-3xl font-bold text-primary">2,800+</div>
-                <div className="text-muted-foreground">Venues Powered</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary">60+</div>
-                <div className="text-muted-foreground">Countries</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary">150+</div>
-                <div className="text-muted-foreground">Team Members</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary">15M+</div>
-                <div className="text-muted-foreground">Daily Transactions</div>
-              </div>
-            </div>
-          </div>
-        </section>
+        
 
         {/* Values Section */}
         <section className="py-20">
@@ -161,12 +109,10 @@ const Careers = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {values.map((value, index) => (
-                <Card key={index} className="p-6 hover:shadow-elevated transition-smooth">
+              {values.map((value, index) => <Card key={index} className="p-6 hover:shadow-elevated transition-smooth">
                   <h3 className="text-xl font-bold mb-3">{value.title}</h3>
                   <p className="text-muted-foreground">{value.description}</p>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
         </section>
@@ -185,17 +131,15 @@ const Careers = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {benefits.map((benefit, index) => {
-                const Icon = benefit.icon;
-                return (
-                  <Card key={index} className="text-center p-6 hover:shadow-elevated transition-smooth">
+              const Icon = benefit.icon;
+              return <Card key={index} className="text-center p-6 hover:shadow-elevated transition-smooth">
                     <div className="inline-flex p-3 rounded-full gradient-primary mb-4 shadow-brand">
                       <Icon className="w-6 h-6 text-white" />
                     </div>
                     <h3 className="font-bold mb-2">{benefit.title}</h3>
                     <p className="text-sm text-muted-foreground">{benefit.description}</p>
-                  </Card>
-                );
-              })}
+                  </Card>;
+            })}
             </div>
           </div>
         </section>
@@ -213,8 +157,7 @@ const Careers = () => {
             </div>
 
             <div className="space-y-6">
-              {jobOpenings.map((job, index) => (
-                <Card key={index} className="p-6 hover:shadow-elevated transition-smooth">
+              {jobOpenings.map((job, index) => <Card key={index} className="p-6 hover:shadow-elevated transition-smooth">
                   <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
                     <div className="flex-1">
                       <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
@@ -247,8 +190,7 @@ const Careers = () => {
                       </Button>
                     </div>
                   </div>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
         </section>
@@ -271,8 +213,6 @@ const Careers = () => {
       </main>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Careers;
