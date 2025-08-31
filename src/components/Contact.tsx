@@ -156,7 +156,11 @@ const Contact = () => {
             </Card>
 
             {/* Sales Team */}
-            
+            <Card className="animate-slide-up" style={{
+            animationDelay: '0.4s'
+          }}>
+              
+            </Card>
 
             {/* Global Offices */}
             <Card className="animate-slide-up" style={{
