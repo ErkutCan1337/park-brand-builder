@@ -156,11 +156,7 @@ const Contact = () => {
             </Card>
 
             {/* Sales Team */}
-            <Card className="animate-slide-up" style={{
-            animationDelay: '0.4s'
-          }}>
-              
-            </Card>
+            
 
             {/* Global Offices */}
             <Card className="animate-slide-up" style={{
@@ -193,15 +189,7 @@ const Contact = () => {
                       </div>
                     </div>)}
                 </div>
-                <div className="mt-4 p-3 bg-muted rounded-lg">
-                  <div className="flex items-center text-sm">
-                    <Clock className="w-4 h-4 text-primary mr-2" />
-                    <span className="font-medium">24/7 Support Available</span>
-                  </div>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    Global support team ensures your operations never stop
-                  </p>
-                </div>
+                
               </CardContent>
             </Card>
           </div>
