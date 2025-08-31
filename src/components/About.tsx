@@ -103,13 +103,7 @@ const About = () => {
         </div>
 
         {/* Awards Section with Visual Focus */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className="relative animate-slide-up">
-            <img src={awardsImage} alt="QRIO industry awards and recognition display including IAAPA Brass Ring Award" className="rounded-2xl shadow-2xl w-full" />
-            
-          </div>
-          
-        </div>
+        
 
         {/* Values & Advantages */}
         <div className="grid lg:grid-cols-2 gap-12">
