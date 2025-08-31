@@ -106,28 +106,9 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="relative animate-slide-up">
             <img src={awardsImage} alt="QRIO industry awards and recognition display including IAAPA Brass Ring Award" className="rounded-2xl shadow-2xl w-full" />
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
+            
           </div>
-          <div className="animate-slide-up" style={{
-          animationDelay: '0.2s'
-        }}>
-            <h3 className="text-3xl font-display font-bold mb-8 text-gradient">Industry Recognition</h3>
-            <div className="space-y-6">
-              {achievements.map((achievement, index) => <Card key={index} className="bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20 hover:shadow-lg transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-center space-x-4">
-                      <div className="p-2 rounded-full gradient-primary">
-                        <Trophy className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <h4 className="font-bold">{achievement}</h4>
-                        <p className="text-sm text-muted-foreground">Excellence in Entertainment Technology</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>)}
-            </div>
-          </div>
+          
         </div>
 
         {/* Values & Advantages */}
