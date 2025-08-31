@@ -190,9 +190,7 @@ const Solutions = () => {
                               Schedule Demo
                               <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>
-                            <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-2">
-                              Download Case Study
-                            </Button>
+                            
                           </div>
                         </div>
                       </div>
