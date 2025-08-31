@@ -62,7 +62,7 @@ const Footer = () => {
                 />
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   Leading technology platform for amusement parks, FECs, water parks, and attractions worldwide. 
-                  Trusted by 2,800+ venues across 60+ countries.
+                  
                 </p>
               </div>
 
