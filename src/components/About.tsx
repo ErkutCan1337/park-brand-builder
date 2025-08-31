@@ -40,7 +40,7 @@ const About = () => {
 
             <div className="space-y-6 text-muted-foreground">
               <p className="text-lg leading-relaxed">
-                For over two decades, QRIO has been at the forefront of entertainment technology, 
+                For over two decades, CRIO has been at the forefront of entertainment technology, 
                 transforming how venues operate and how guests experience attractions worldwide.
               </p>
               
