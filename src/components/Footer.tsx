@@ -95,7 +95,11 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-4 h-4 mr-2 text-primary" />
-                  11417 IL-19, Franklin Park, IL 60131 U.S.A.
+                  Orlando, FL • London, UK • Singapore
+                </div>
+                <div className="flex items-center">
+                  <MapPin className="w-4 h-4 mr-2 text-primary" />
+                  Mutlukent Mah. 2037. Cad. No:30 Çankaya Ankara
                 </div>
               </div>
             </div>
