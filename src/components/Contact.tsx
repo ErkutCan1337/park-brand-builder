@@ -19,24 +19,24 @@ const Contact = () => {
   const offices = [
     {
       region: "North America",
-      city: "Orlando, FL",
-      address: "123 Technology Blvd, Orlando, FL 32819",
-      phone: "+1 (407) 555-0123",
-      email: "americas@qrio.com"
+      city: "Chicago , U.S.A.",
+      address: "11417 IL-19, Franklin Park, IL 60131 ",
+      phone: "+1 312 625 21 17",
+      email: "info@crio.games"
     },
     {
       region: "Europe",
-      city: "London, UK", 
+      city: "Oxford , UK", 
       address: "45 Innovation Street, London EC2A 4DP",
       phone: "+44 20 7555 0123",
-      email: "europe@qrio.com"
+      email: "info@crio.games"
     },
     {
       region: "Asia Pacific",
-      city: "Singapore",
-      address: "88 Business Park Drive, Singapore 119618",
-      phone: "+65 6555 0123",
-      email: "apac@qrio.com"
+      city: "Ankara",
+      address: "Mutlukent Mah. 2037. Cad. No:30 Çankaya",
+      phone: "+90 (312) 440 47 47",
+      email: "info@crio.games"
     }
   ];
 
