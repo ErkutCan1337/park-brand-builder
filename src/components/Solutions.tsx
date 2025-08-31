@@ -51,8 +51,102 @@ const Solutions = () => {
     title: "CRM & Analytics",
     description: "Deep insights into guest behavior and preferences"
   }];
-  return <section id="solutions" className="py-20 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  return (
+    <>
+      {/* Crio Games Hero Section */}
+      <section className="relative py-20 bg-gradient-to-br from-primary/5 via-secondary/5 to-primary-glow/5 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-secondary/10 via-transparent to-transparent"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Content */}
+            <div className="animate-slide-up">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+                <Gamepad2 className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-primary">Featured Solution</span>
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 bg-gradient-to-r from-primary via-primary-glow to-secondary bg-clip-text text-transparent">
+                Crio Games
+              </h1>
+              
+              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+                Revolutionize your gaming center with our cutting-edge management platform. 
+                From arcade operations to esports tournaments, Crio Games delivers the complete 
+                solution for modern entertainment venues.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="gradient-primary text-white shadow-brand">
+                  <Gamepad2 className="mr-2 h-5 w-5" />
+                  Explore Crio Games
+                </Button>
+                <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+                  View Case Studies
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </div>
+              
+              <div className="mt-8 grid grid-cols-3 gap-6">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary">500+</div>
+                  <div className="text-sm text-muted-foreground">Gaming Centers</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary">2M+</div>
+                  <div className="text-sm text-muted-foreground">Players Served</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary">98%</div>
+                  <div className="text-sm text-muted-foreground">Satisfaction Rate</div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Video Placeholder */}
+            <div className="relative animate-slide-up" style={{ animationDelay: '0.2s' }}>
+              <div className="relative rounded-2xl overflow-hidden shadow-elevated bg-card border border-border">
+                <div className="aspect-video bg-gradient-to-br from-muted/50 to-muted relative group">
+                  {/* Video placeholder - Replace this div with your video element */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-smooth">
+                        <svg className="w-10 h-10 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                      <p className="text-muted-foreground font-medium">Video Placeholder</p>
+                      <p className="text-sm text-muted-foreground mt-1">Replace with your video content</p>
+                    </div>
+                  </div>
+                  
+                  {/* Example of how to embed video - uncomment and customize when ready */}
+                  {/* <video 
+                    className="w-full h-full object-cover"
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline
+                  >
+                    <source src="/path-to-your-video.mp4" type="video/mp4" />
+                  </video> */}
+                </div>
+                
+                {/* Optional play button overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none"></div>
+              </div>
+              
+              {/* Decorative elements */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl"></div>
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-secondary/10 rounded-full blur-2xl"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section id="solutions" className="py-20 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
             Modular Solutions for Every Venue
@@ -222,6 +316,8 @@ const Solutions = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+    </>
+  );
 };
 export default Solutions;
