@@ -91,7 +91,7 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center">
                   <Mail className="w-4 h-4 mr-2 text-primary" />
-                  info@qrio.com
+                  info@crio.games
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-4 h-4 mr-2 text-primary" />
