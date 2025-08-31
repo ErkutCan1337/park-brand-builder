@@ -158,6 +158,22 @@ const About = () => {
                   <div className="w-2 h-2 rounded-full bg-white mt-2 flex-shrink-0"></div>
                   <span>Seamless integration with existing systems</span>
                 </li>
+                <li className="flex items-start space-x-3">
+                  <div className="w-2 h-2 rounded-full bg-white mt-2 flex-shrink-0"></div>
+                  <span>Scalable solutions that grow with your business needs</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <div className="w-2 h-2 rounded-full bg-white mt-2 flex-shrink-0"></div>
+                  <span>Enhanced security and compliance for peace of mind</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <div className="w-2 h-2 rounded-full bg-white mt-2 flex-shrink-0"></div>
+                  <span>Advanced data analytics for smarter decision-making</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <div className="w-2 h-2 rounded-full bg-white mt-2 flex-shrink-0"></div>
+                  <span>User-friendly interfaces that simplify staff training and operations</span>
+                </li>
               </ul>
             </CardContent>
           </Card>
