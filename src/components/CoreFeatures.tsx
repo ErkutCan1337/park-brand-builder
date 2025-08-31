@@ -90,7 +90,7 @@ const CoreFeatures = () => {
             Core Platform Features
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Discover the powerful features that make QRIO the leading technology platform for entertainment venues worldwide.
+            Discover the powerful features that make CRIO the leading technology platform for entertainment venues worldwide.
           </p>
         </div>
 
