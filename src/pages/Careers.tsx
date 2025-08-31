@@ -178,10 +178,7 @@ const Careers = () => {
                         </div>
                       </div>
                       <p className="text-muted-foreground mb-2">{job.description}</p>
-                      <div className="flex items-center text-sm text-muted-foreground">
-                        <DollarSign className="w-4 h-4 mr-1" />
-                        {job.salary}
-                      </div>
+                      
                     </div>
                     <div className="mt-4 lg:mt-0 lg:ml-6">
                       <Button className="gradient-primary text-white">
