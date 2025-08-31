@@ -30,7 +30,7 @@ const About = () => {
           <div className="animate-slide-up">
             <div className="mb-6">
               <Badge variant="outline" className="border-primary text-primary mb-4">
-                About QRIO
+                About CRIO
               </Badge>
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
                 Powering the Future of 
@@ -40,7 +40,7 @@ const About = () => {
 
             <div className="space-y-6 text-muted-foreground">
               <p className="text-lg leading-relaxed">
-                For over two decades, CRIO has been at the forefront of entertainment technology, 
+                For over two decades, QRIO has been at the forefront of entertainment technology, 
                 transforming how venues operate and how guests experience attractions worldwide.
               </p>
               
