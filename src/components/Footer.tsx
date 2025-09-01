@@ -200,7 +200,7 @@ const Footer = () => {
           {/* Awards & Certifications */}
           <div className="mt-6 pt-6 border-t border-border">
             <div className="text-center">
-              <p className="text-xs text-muted-foreground mb-2">Award-Winning Technology Solutions</p>
+              <p className="text-xs text-muted-foreground mb-2">Technology Solutions</p>
               <div className="flex flex-wrap justify-center gap-4 text-xs text-primary">
                 <span>•</span>
                 <span>ISO 27001 Certified</span>
