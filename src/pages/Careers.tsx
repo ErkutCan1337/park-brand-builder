@@ -1,9 +1,13 @@
+import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, Clock, DollarSign, Users, Rocket, Heart, Award, Globe, ArrowRight, Briefcase } from "lucide-react";
+import JobApplicationModal from "@/components/JobApplicationModal";
 const Careers = () => {
+  const [isApplicationModalOpen, setIsApplicationModalOpen] = useState(false);
+  const [selectedJobTitle, setSelectedJobTitle] = useState("");
   const jobOpenings = [{
     title: "Senior Software Engineer",
     department: "Engineering",
@@ -181,7 +185,13 @@ const Careers = () => {
                       
                     </div>
                     <div className="mt-4 lg:mt-0 lg:ml-6">
-                      <Button className="gradient-primary text-white">
+                      <Button 
+                        className="gradient-primary text-white"
+                        onClick={() => {
+                          setSelectedJobTitle(job.title);
+                          setIsApplicationModalOpen(true);
+                        }}
+                      >
                         Apply Now
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
@@ -210,6 +220,12 @@ const Careers = () => {
       </main>
 
       <Footer />
+      
+      <JobApplicationModal 
+        open={isApplicationModalOpen} 
+        onOpenChange={setIsApplicationModalOpen}
+        jobTitle={selectedJobTitle}
+      />
     </div>;
 };
 export default Careers;

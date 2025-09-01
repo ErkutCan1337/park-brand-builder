@@ -1,10 +1,55 @@
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Mail, Phone, MapPin, Clock, Users, Briefcase, Globe, ArrowRight, Send } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
 const Contact = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    company: "",
+    venueType: "",
+    locations: "",
+    message: ""
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    toast({
+      title: "Successfully submitted!",
+      description: "Thank you for your interest. Our team will contact you within 24 hours.",
+    });
+    
+    // Reset form
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      company: "",
+      venueType: "",
+      locations: "",
+      message: ""
+    });
+    
+    setIsSubmitting(false);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
   const offices = [{
     region: "North America",
     city: "Chicago , U.S.A.",
@@ -64,66 +109,113 @@ const Contact = () => {
                   Request a Demo
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">First Name</label>
-                    <Input placeholder="John" />
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium mb-2">First Name *</label>
+                      <Input 
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        placeholder="John" 
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Last Name *</label>
+                      <Input 
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        placeholder="Smith" 
+                        required
+                      />
+                    </div>
                   </div>
+                  
                   <div>
-                    <label className="block text-sm font-medium mb-2">Last Name</label>
-                    <Input placeholder="Smith" />
+                    <label className="block text-sm font-medium mb-2">Email *</label>
+                    <Input 
+                      type="email" 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="john.smith@venue.com" 
+                      required
+                    />
                   </div>
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
-                  <Input type="email" placeholder="john.smith@venue.com" />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium mb-2">Company</label>
-                  <Input placeholder="Your Venue Name" />
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  
                   <div>
-                    <label className="block text-sm font-medium mb-2">Venue Type</label>
-                    <select className="w-full p-2 border border-input rounded-md bg-background">
-                      <option>Select venue type</option>
-                      <option>Family Entertainment Center</option>
-                      <option>Theme Park</option>
-                      <option>Water Park</option>
-                      <option>Attraction</option>
-                      <option>Other</option>
-                    </select>
+                    <label className="block text-sm font-medium mb-2">Company *</label>
+                    <Input 
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      placeholder="Your Venue Name" 
+                      required
+                    />
                   </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Venue Type</label>
+                      <select 
+                        name="venueType"
+                        value={formData.venueType}
+                        onChange={handleChange}
+                        className="w-full p-2 border border-input rounded-md bg-background"
+                      >
+                        <option value="">Select venue type</option>
+                        <option value="fec">Family Entertainment Center</option>
+                        <option value="theme-park">Theme Park</option>
+                        <option value="water-park">Water Park</option>
+                        <option value="attraction">Attraction</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Number of Locations</label>
+                      <select 
+                        name="locations"
+                        value={formData.locations}
+                        onChange={handleChange}
+                        className="w-full p-2 border border-input rounded-md bg-background"
+                      >
+                        <option value="">Select locations</option>
+                        <option value="1">1 location</option>
+                        <option value="2-5">2-5 locations</option>
+                        <option value="6-10">6-10 locations</option>
+                        <option value="10+">10+ locations</option>
+                      </select>
+                    </div>
+                  </div>
+
                   <div>
-                    <label className="block text-sm font-medium mb-2">Number of Locations</label>
-                    <select className="w-full p-2 border border-input rounded-md bg-background">
-                      <option>Select locations</option>
-                      <option>1 location</option>
-                      <option>2-5 locations</option>
-                      <option>6-10 locations</option>
-                      <option>10+ locations</option>
-                    </select>
+                    <label className="block text-sm font-medium mb-2">Tell us about your needs</label>
+                    <Textarea 
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="What challenges are you looking to solve? What solutions interest you most?" 
+                      rows={4} 
+                    />
                   </div>
-                </div>
 
-                <div>
-                  <label className="block text-sm font-medium mb-2">Tell us about your needs</label>
-                  <Textarea placeholder="What challenges are you looking to solve? What solutions interest you most?" rows={4} />
-                </div>
+                  <Button 
+                    type="submit"
+                    className="w-full gradient-primary text-white border-0 shadow-brand"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Submitting..." : "Request Demo"}
+                    {!isSubmitting && <ArrowRight className="ml-2 h-4 w-4" />}
+                  </Button>
 
-                <Button className="w-full gradient-primary text-white border-0 shadow-brand">
-                  Request Demo
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-
-                <p className="text-xs text-muted-foreground text-center">
-                  By submitting this form, you agree to receive communications from CRIO. 
-                  We respect your privacy and will never share your information.
-                </p>
+                  <p className="text-xs text-muted-foreground text-center">
+                    By submitting this form, you agree to receive communications from CRIO. 
+                    We respect your privacy and will never share your information.
+                  </p>
+                </form>
               </CardContent>
             </Card>
           </div>

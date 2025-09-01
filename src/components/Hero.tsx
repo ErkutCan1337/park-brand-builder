@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Award, MapPin, Building2 } from "lucide-react";
 import heroImage from "@/assets/hero-control-room.jpg";
+import DemoRequestModal from "@/components/DemoRequestModal";
 
 const Hero = () => {
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   return (
     <section className="relative pt-24 pb-16 overflow-hidden">
       {/* Hero background with technology image */}
@@ -43,7 +46,11 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button size="lg" className="gradient-primary text-white border-0 shadow-brand animate-pulse-glow group">
+            <Button 
+              size="lg" 
+              className="gradient-primary text-white border-0 shadow-brand animate-pulse-glow group"
+              onClick={() => setIsDemoModalOpen(true)}
+            >
               Request Demo
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-smooth" />
             </Button>
@@ -78,6 +85,8 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      
+      <DemoRequestModal open={isDemoModalOpen} onOpenChange={setIsDemoModalOpen} />
     </section>
   );
 };

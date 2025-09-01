@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import DemoRequestModal from "@/components/DemoRequestModal";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
 
   const navItems = [
     { name: "Solutions", href: "/solutions" },
@@ -51,10 +53,10 @@ const Header = () => {
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline">
+            <Button variant="outline" onClick={() => setIsDemoModalOpen(true)}>
               Request Demo
             </Button>
-            <Button className="gradient-primary text-white border-0 shadow-brand">
+            <Button className="gradient-primary text-white border-0 shadow-brand" onClick={() => setIsDemoModalOpen(true)}>
               Get Started
             </Button>
           </div>
@@ -97,10 +99,16 @@ const Header = () => {
                 )
               ))}
               <div className="px-3 py-2 space-y-2">
-                <Button variant="outline" className="w-full">
+                <Button variant="outline" className="w-full" onClick={() => {
+                  setIsDemoModalOpen(true);
+                  setIsMenuOpen(false);
+                }}>
                   Request Demo
                 </Button>
-                <Button className="w-full gradient-primary text-white border-0 shadow-brand">
+                <Button className="w-full gradient-primary text-white border-0 shadow-brand" onClick={() => {
+                  setIsDemoModalOpen(true);
+                  setIsMenuOpen(false);
+                }}>
                   Get Started
                 </Button>
               </div>
@@ -108,6 +116,8 @@ const Header = () => {
           </div>
         )}
       </div>
+      
+      <DemoRequestModal open={isDemoModalOpen} onOpenChange={setIsDemoModalOpen} />
     </header>
   );
 };
