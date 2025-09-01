@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import DemoRequestModal from "@/components/DemoRequestModal";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navItems = [
     { name: "Solutions", href: "/solutions" },
@@ -14,6 +16,36 @@ const Header = () => {
     { name: "Careers", href: "/careers" },
     { name: "Contact", href: "/#contact" },
   ];
+
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    
+    // If we're already on the homepage
+    if (location.pathname === '/') {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }
+    } else {
+      // Navigate to homepage then scroll
+      navigate('/');
+      setTimeout(() => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+          contactSection.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+        });
+        }
+      }, 100);
+    }
+    
+    // Close mobile menu if open
+    setIsMenuOpen(false);
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -32,11 +64,12 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              item.href.startsWith('#') ? (
+              item.name === 'Contact' ? (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-foreground hover:text-primary transition-smooth font-medium"
+                  onClick={handleContactClick}
+                  className="text-foreground hover:text-primary transition-smooth font-medium cursor-pointer"
                 >
                   {item.name}
                 </a>
@@ -78,12 +111,12 @@ const Header = () => {
           <div className="md:hidden border-t border-border">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
-                item.href.startsWith('#') ? (
+                item.name === 'Contact' ? (
                   <a
                     key={item.name}
                     href={item.href}
-                    className="block px-3 py-2 text-foreground hover:text-primary transition-smooth font-medium"
-                    onClick={() => setIsMenuOpen(false)}
+                    className="block px-3 py-2 text-foreground hover:text-primary transition-smooth font-medium cursor-pointer"
+                    onClick={handleContactClick}
                   >
                     {item.name}
                   </a>
