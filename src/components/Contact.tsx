@@ -121,7 +121,7 @@ const Contact = () => {
                 </Button>
 
                 <p className="text-xs text-muted-foreground text-center">
-                  By submitting this form, you agree to receive communications from QRIO. 
+                  By submitting this form, you agree to receive communications from CRIO. 
                   We respect your privacy and will never share your information.
                 </p>
               </CardContent>
