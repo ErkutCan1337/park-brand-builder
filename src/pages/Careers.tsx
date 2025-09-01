@@ -28,14 +28,14 @@ const Careers = () => {
     location: "Chicago / Remote",
     type: "Full-time",
     salary: "$75,000 - $95,000",
-    description: "Help entertainment venues maximize their success with QRIO's platform."
+    description: "Help entertainment venues maximize their success with CRIO's platform."
   }, {
     title: "DevOps Engineer",
     department: "Engineering",
     location: "Austin / Remote",
     type: "Full-time",
     salary: "$100,000 - $140,000",
-    description: "Maintain and optimize infrastructure serving 2,800+ locations globally."
+    description: "Maintain and optimize infrastructure serving globally."
   }];
   const benefits = [{
     icon: Heart,
@@ -59,10 +59,10 @@ const Careers = () => {
     description: "We're constantly pushing the boundaries of what's possible in entertainment technology."
   }, {
     title: "Customer-Centric",
-    description: "Every decision we make puts our 2,800+ venue partners at the center."
+    description: "Every decision we make puts our venue partners at the center."
   }, {
     title: "Global Impact",
-    description: "Our work touches millions of guests across 60+ countries every day."
+    description: "Our work touches millions of guests across many countries every day."
   }, {
     title: "Team Excellence",
     description: "We hire the best and support each other to do our best work."
