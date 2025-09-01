@@ -17,6 +17,25 @@ const Header = () => {
     { name: "Contact", href: "/#contact" },
   ];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, name: string) => {
+    e.preventDefault();
+    
+    // For pages that need scroll to top
+    if (name === 'Solutions' || name === 'About' || name === 'Careers') {
+      if (location.pathname === href) {
+        // Already on the page, just scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        // Navigate to the page and then scroll to top
+        navigate(href);
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 100);
+      }
+      setIsMenuOpen(false);
+    }
+  };
+
   const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     
@@ -73,6 +92,15 @@ const Header = () => {
                 >
                   {item.name}
                 </a>
+              ) : item.name === 'Solutions' || item.name === 'About' || item.name === 'Careers' ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href, item.name)}
+                  className="text-foreground hover:text-primary transition-smooth font-medium cursor-pointer"
+                >
+                  {item.name}
+                </a>
               ) : (
                 <Link
                   key={item.name}
@@ -117,6 +145,15 @@ const Header = () => {
                     href={item.href}
                     className="block px-3 py-2 text-foreground hover:text-primary transition-smooth font-medium cursor-pointer"
                     onClick={handleContactClick}
+                  >
+                    {item.name}
+                  </a>
+                ) : item.name === 'Solutions' || item.name === 'About' || item.name === 'Careers' ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href, item.name)}
+                    className="block px-3 py-2 text-foreground hover:text-primary transition-smooth font-medium cursor-pointer"
                   >
                     {item.name}
                   </a>
