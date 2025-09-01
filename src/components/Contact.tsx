@@ -18,7 +18,7 @@ const Contact = () => {
     phone: "+44 20 7555 0123",
     email: "info@crio.games"
   }, {
-    region: "Asia Pacific",
+    region: "MENA/Asia ",
     city: "Ankara , TR",
     address: "Mutlukent Mah. 2037. Cad. No:30 Çankaya",
     phone: "+90 (312) 440 47 47",
