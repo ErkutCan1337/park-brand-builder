@@ -202,9 +202,6 @@ const Footer = () => {
             <div className="text-center">
               <p className="text-xs text-muted-foreground mb-2">Award-Winning Technology Solutions</p>
               <div className="flex flex-wrap justify-center gap-4 text-xs text-primary">
-                <span>IAAPA Brass Ring Award Winner</span>
-                <span>•</span>
-                <span>IAAPI Innovative Product of the Year</span>
                 <span>•</span>
                 <span>ISO 27001 Certified</span>
                 <span>•</span>
