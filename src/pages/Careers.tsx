@@ -8,6 +8,24 @@ import JobApplicationModal from "@/components/JobApplicationModal";
 const Careers = () => {
   const [isApplicationModalOpen, setIsApplicationModalOpen] = useState(false);
   const [selectedJobTitle, setSelectedJobTitle] = useState("");
+  
+  const handleScrollToPositions = () => {
+    const h2Elements = document.querySelectorAll('h2');
+    let openPositionsSection: HTMLElement | null = null;
+    
+    h2Elements.forEach(h2 => {
+      if (h2.textContent?.includes('Open Positions')) {
+        openPositionsSection = h2.closest('section');
+      }
+    });
+    
+    if (openPositionsSection) {
+      openPositionsSection.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+    }
+  };
   const jobOpenings = [{
     title: "Senior Software Engineer",
     department: "Engineering",
@@ -86,7 +104,11 @@ const Careers = () => {
               Be part of a team that's shaping the future of family entertainment, theme parks, and attractions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="gradient-primary text-white shadow-brand">
+              <Button 
+                size="lg" 
+                className="gradient-primary text-white shadow-brand"
+                onClick={handleScrollToPositions}
+              >
                 View Open Positions
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>

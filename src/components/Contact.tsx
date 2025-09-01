@@ -6,7 +6,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Mail, Phone, MapPin, Clock, Users, Briefcase, Globe, ArrowRight, Send } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { useNavigate, useLocation } from "react-router-dom";
 const Contact = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -49,6 +52,50 @@ const Contact = () => {
       ...prev,
       [e.target.name]: e.target.value
     }));
+  };
+
+  const handleViewPositions = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    
+    // If we're already on the careers page
+    if (location.pathname === '/careers') {
+      const positionsSection = document.querySelector('section:has(h2:first-child)');
+      const h2Elements = document.querySelectorAll('h2');
+      let openPositionsSection: HTMLElement | null = null;
+      
+      h2Elements.forEach(h2 => {
+        if (h2.textContent?.includes('Open Positions')) {
+          openPositionsSection = h2.closest('section');
+        }
+      });
+      
+      if (openPositionsSection) {
+        openPositionsSection.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }
+    } else {
+      // Navigate to careers page then scroll
+      navigate('/careers');
+      setTimeout(() => {
+        const h2Elements = document.querySelectorAll('h2');
+        let openPositionsSection: HTMLElement | null = null;
+        
+        h2Elements.forEach(h2 => {
+          if (h2.textContent?.includes('Open Positions')) {
+            openPositionsSection = h2.closest('section');
+          }
+        });
+        
+        if (openPositionsSection) {
+          openPositionsSection.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }
+      }, 100);
+    }
   };
   const offices = [{
     region: "North America",
@@ -240,7 +287,11 @@ const Contact = () => {
                   <Badge variant="outline">Sales Professionals</Badge>
                   <Badge variant="outline">Support Specialists</Badge>
                 </div>
-                <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+                <Button 
+                  variant="outline" 
+                  className="border-primary text-primary hover:bg-primary hover:text-white"
+                  onClick={handleViewPositions}
+                >
                   View Open Positions
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
