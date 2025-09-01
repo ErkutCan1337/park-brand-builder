@@ -152,7 +152,7 @@ const Careers = () => {
                 Open Positions
               </h2>
               <p className="text-xl text-muted-foreground">
-                Find your next career opportunity with QRIO.
+                Find your next career opportunity with CRIO.
               </p>
             </div>
 
